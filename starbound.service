@@ -1,0 +1,12 @@
+[Unit]
+Description=Starbound Server
+
+[Service]
+Type=simple
+ExecStart=/usr/sbin/systemd-docker run --rm --name starbound -p 21025:21025 \
+          --volumes-from starbound-data
+          demon012/starbound
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
